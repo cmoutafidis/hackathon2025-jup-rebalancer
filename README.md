@@ -1,36 +1,134 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Jupiter Portfolio Rebalancer
 
-## Getting Started
+A showcase application demonstrating Jupiter Protocol integration for portfolio rebalancing on Solana.
 
-First, run the development server:
+## 🚀 Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Wallet Connection**: Connect Solana wallets (Phantom, Solflare, etc.)
+- **Portfolio Display**: View your token balances and portfolio overview
+- **Jupiter Integration**: Direct links to Jupiter Terminal and API documentation
+- **Modern UI**: Beautiful, responsive design with Jupiter branding
+- **Real-time Updates**: Live wallet connection status
+
+## 🛠️ Tech Stack
+
+- **Framework**: Next.js 15 with React 19
+- **Styling**: Tailwind CSS v4
+- **Wallet**: Solana Wallet Adapter
+- **Blockchain**: Solana (Devnet)
+- **Icons**: Lucide React
+- **Package Manager**: pnpm
+
+## 📦 Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd jup-rebalancer
+   ```
+
+2. **Install dependencies**
+   ```bash
+   pnpm install
+   ```
+
+3. **Start the development server**
+   ```bash
+   pnpm dev
+   ```
+
+4. **Open your browser**
+   Navigate to [http://localhost:3000](http://localhost:3000)
+
+## 🎯 Usage
+
+### Connecting Your Wallet
+1. Click the "Connect Wallet" button in the header
+2. Select your preferred Solana wallet (Phantom recommended)
+3. Approve the connection in your wallet
+
+### Viewing Your Portfolio
+- Once connected, your token balances will be displayed
+- Click the refresh button to update balances
+- Portfolio shows SOL and USDC balances (expandable)
+
+### Jupiter Integration
+- Click "Open Jupiter Integration" to explore Jupiter features
+- Access Jupiter Terminal for swapping tokens
+- View Jupiter API documentation for developers
+
+## 🔗 Jupiter Ecosystem Links
+
+- **Jupiter Protocol**: [https://jup.ag](https://jup.ag)
+- **Jupiter Terminal**: [https://terminal.jup.ag](https://terminal.jup.ag)
+- **Developer Docs**: [https://dev.jup.ag](https://dev.jup.ag)
+- **Branding Guidelines**: [https://dev.jup.ag/docs/misc/integrator-guidelines](https://dev.jup.ag/docs/misc/integrator-guidelines)
+
+## 🏗️ Project Structure
+
+```
+src/
+├── app/
+│   ├── components/
+│   │   └── WalletProvider.tsx    # Solana wallet context
+│   ├── globals.css               # Global styles and Jupiter branding
+│   ├── layout.tsx                # Root layout with wallet provider
+│   └── page.tsx                  # Main rebalancer interface
+├── public/                       # Static assets
+└── package.json                  # Dependencies and scripts
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🎨 Jupiter Branding
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+This application follows Jupiter's branding guidelines:
+- **Primary Colors**: Purple (#9945FF) and Pink (#FF6B9D)
+- **Gradient**: Purple to Pink gradient for buttons and accents
+- **Typography**: Clean, modern fonts with proper hierarchy
+- **Icons**: Consistent iconography using Lucide React
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🚀 Deployment
 
-## Learn More
+### Vercel (Recommended)
+1. Push your code to GitHub
+2. Connect your repository to Vercel
+3. Deploy automatically
 
-To learn more about Next.js, take a look at the following resources:
+### Manual Build
+```bash
+pnpm build
+pnpm start
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🔧 Development
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Available Scripts
+- `pnpm dev` - Start development server
+- `pnpm build` - Build for production
+- `pnpm start` - Start production server
+- `pnpm lint` - Run ESLint
 
-## Deploy on Vercel
+### Environment Variables
+No environment variables required for basic functionality.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🤝 Contributing
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test thoroughly
+5. Submit a pull request
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## 🙏 Acknowledgments
+
+- [Jupiter Protocol](https://jup.ag) for the amazing DeFi infrastructure
+- [Solana Labs](https://solana.com) for the blockchain platform
+- [Next.js](https://nextjs.org) for the React framework
+- [Tailwind CSS](https://tailwindcss.com) for the styling system
+
+---
+
+**Built for the Jupiverse Event** 🚀
