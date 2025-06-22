@@ -1,5 +1,9 @@
 # Jupiter Rebalancer & Swap DApp
 
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-jup--rebalancer.vercel.app-blue?style=flat-square)](https://jup-rebalancer.vercel.app/swap)
+
+**Live Deployment:** [https://jup-rebalancer.vercel.app/swap](https://jup-rebalancer.vercel.app/swap)
+
 A Solana dApp to explore, price, and (future) swap all tokens supported by [Jupiter Exchange](https://jup.ag), the #1 liquidity aggregator on Solana. Built for the Namaste Jupiverse - Hackathon Edition (HYD).
 
 ---

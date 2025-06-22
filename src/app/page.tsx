@@ -6,6 +6,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { Wallet, TrendingUp, RefreshCw, Zap, ExternalLink, AlertCircle } from 'lucide-react';
 import { LAMPORTS_PER_SOL } from '@solana/web3.js';
 import { TOKEN_PROGRAM_ID } from '@solana/spl-token';
+import Link from 'next/link';
 
 // Define the structure for our token data
 interface TokenInfo {
@@ -181,11 +182,15 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             <div className="flex items-center space-x-4">
-              <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
-                <Zap className="w-5 h-5 text-white" />
-              </div>
+              <img src="/jupi.svg" alt="Jupiter Logo" className="w-8 h-8 rounded-lg bg-white/10" />
               <h1 className="text-xl font-bold text-white">Jupiter Portfolio Rebalancer</h1>
             </div>
+            {/* Navigation Buttons */}
+            <nav className="flex space-x-6">
+              <Link href="/" className="px-4 py-2 rounded-lg bg-gradient-to-r from-purple-600 to-pink-600 text-white font-medium hover:from-purple-700 hover:to-pink-700 transition-all duration-200">Home</Link>
+              <Link href="/swap" className="px-4 py-2 rounded-lg bg-gradient-to-r from-purple-600 to-pink-600 text-white font-medium hover:from-purple-700 hover:to-pink-700 transition-all duration-200">Swap</Link>
+              <a href="https://github.com/harshakp06/jup-rebalancer" target="_blank" rel="noopener noreferrer" className="px-4 py-2 rounded-lg bg-gradient-to-r from-gray-800 to-gray-600 text-white font-medium hover:from-gray-900 hover:to-gray-700 transition-all duration-200">GitHub</a>
+            </nav>
           </div>
         </div>
       </header>
