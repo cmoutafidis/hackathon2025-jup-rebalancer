@@ -1,134 +1,76 @@
-# Jupiter Portfolio Rebalancer
+# Jupiter Rebalancer & Swap DApp
 
-A showcase application demonstrating Jupiter Protocol integration for portfolio rebalancing on Solana.
+A Solana dApp to explore, price, and (future) swap all tokens supported by [Jupiter Exchange](https://jup.ag), the #1 liquidity aggregator on Solana. Built for the Namaste Jupiverse - Hackathon Edition (HYD).
 
-## 🚀 Features
+---
 
-- **Wallet Connection**: Connect Solana wallets (Phantom, Solflare, etc.)
-- **Portfolio Display**: View your token balances and portfolio overview
-- **Jupiter Integration**: Direct links to Jupiter Terminal and API documentation
-- **Modern UI**: Beautiful, responsive design with Jupiter branding
-- **Real-time Updates**: Live wallet connection status
+## 🚀 About This Project
 
-## 🛠️ Tech Stack
+This project is a modern Next.js dApp that:
+- Lists all coins supported by Jupiter with real-time prices
+- Fetches token data and prices using Jupiter's official APIs
+- Displays tokens in a beautiful card-based UI with logos
+- (Planned) Integrates Jupiter swap functionality for seamless token swaps
 
-- **Framework**: Next.js 15 with React 19
-- **Styling**: Tailwind CSS v4
-- **Wallet**: Solana Wallet Adapter
-- **Blockchain**: Solana (Devnet)
-- **Icons**: Lucide React
-- **Package Manager**: pnpm
+Access the swap explorer at `/swap`.
 
-## 📦 Installation
+---
 
-1. **Clone the repository**
-   ```bash
-   git clone <repository-url>
-   cd jup-rebalancer
-   ```
+## 🪐 Built at Namaste Jupiverse - Hackathon Edition (HYD)
 
-2. **Install dependencies**
-   ```bash
-   pnpm install
-   ```
+This project was created at the [Namaste Jupiverse - Hackathon Edition (HYD)](https://lu.ma/e72uehpe?tk=J8J2UI), a high-intensity, in-person builder jam powered by Jupiter Exchange and the Jup India Chapter.
 
-3. **Start the development server**
-   ```bash
-   pnpm dev
-   ```
+**About Jupiter Exchange:**
+> Jupiter is the #1 liquidity aggregator on Solana, powering the best possible token swaps across the entire ecosystem. Jupiter is more than just a swap engine — it's the backbone of Solana DeFi, with products like Jupiter Mobile, Pro, Portfolio, and the upcoming Jupiter Lend. Jupiter is trusted by builders and protocols shaping the future of Solana. ([source](https://lu.ma/e72uehpe?tk=J8J2UI))
 
-4. **Open your browser**
-   Navigate to [http://localhost:3000](http://localhost:3000)
+**Event Highlights:**
+- Real-world dApp use cases
+- Deep dives into Jupiter APIs
+- Mentorship from Jupiter DevRel and core team
+- Prizes and opportunities for further development
 
-## 🎯 Usage
+---
 
-### Connecting Your Wallet
-1. Click the "Connect Wallet" button in the header
-2. Select your preferred Solana wallet (Phantom recommended)
-3. Approve the connection in your wallet
+## 🛠️ Getting Started
 
-### Viewing Your Portfolio
-- Once connected, your token balances will be displayed
-- Click the refresh button to update balances
-- Portfolio shows SOL and USDC balances (expandable)
+### Prerequisites
+- Node.js (v18+ recommended)
+- pnpm (recommended)
 
-### Jupiter Integration
-- Click "Open Jupiter Integration" to explore Jupiter features
-- Access Jupiter Terminal for swapping tokens
-- View Jupiter API documentation for developers
-
-## 🔗 Jupiter Ecosystem Links
-
-- **Jupiter Protocol**: [https://jup.ag](https://jup.ag)
-- **Jupiter Terminal**: [https://terminal.jup.ag](https://terminal.jup.ag)
-- **Developer Docs**: [https://dev.jup.ag](https://dev.jup.ag)
-- **Branding Guidelines**: [https://dev.jup.ag/docs/misc/integrator-guidelines](https://dev.jup.ag/docs/misc/integrator-guidelines)
-
-## 🏗️ Project Structure
-
-```
-src/
-├── app/
-│   ├── components/
-│   │   └── WalletProvider.tsx    # Solana wallet context
-│   ├── globals.css               # Global styles and Jupiter branding
-│   ├── layout.tsx                # Root layout with wallet provider
-│   └── page.tsx                  # Main rebalancer interface
-├── public/                       # Static assets
-└── package.json                  # Dependencies and scripts
+### Setup
+```bash
+pnpm install
 ```
 
-## 🎨 Jupiter Branding
+### Development
+```bash
+pnpm dev --port 3000
+```
+Visit [http://localhost:3000/swap](http://localhost:3000/swap) to use the token explorer.
 
-This application follows Jupiter's branding guidelines:
-- **Primary Colors**: Purple (#9945FF) and Pink (#FF6B9D)
-- **Gradient**: Purple to Pink gradient for buttons and accents
-- **Typography**: Clean, modern fonts with proper hierarchy
-- **Icons**: Consistent iconography using Lucide React
-
-## 🚀 Deployment
-
-### Vercel (Recommended)
-1. Push your code to GitHub
-2. Connect your repository to Vercel
-3. Deploy automatically
-
-### Manual Build
+### Production Build
 ```bash
 pnpm build
 pnpm start
 ```
 
-## 🔧 Development
+---
 
-### Available Scripts
-- `pnpm dev` - Start development server
-- `pnpm build` - Build for production
-- `pnpm start` - Start production server
-- `pnpm lint` - Run ESLint
-
-### Environment Variables
-No environment variables required for basic functionality.
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
-
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
-## 🙏 Acknowledgments
-
-- [Jupiter Protocol](https://jup.ag) for the amazing DeFi infrastructure
-- [Solana Labs](https://solana.com) for the blockchain platform
-- [Next.js](https://nextjs.org) for the React framework
-- [Tailwind CSS](https://tailwindcss.com) for the styling system
+## 📄 Features
+- **/swap page:** Lists all Jupiter-supported tokens with price and logo
+- **API integration:** Uses Jupiter's strict token list and quote APIs
+- **Modern UI:** Responsive, card-based design
+- **Ready for extension:** Foundation for full Jupiter swap integration
 
 ---
 
-**Built for the Jupiverse Event** 🚀
+## 🙏 Credits & Links
+- [Namaste Jupiverse - Hackathon Edition (HYD)](https://lu.ma/e72uehpe?tk=J8J2UI)
+- [Jupiter Exchange](https://jup.ag)
+- [Jup India Chapter Telegram](https://t.me/JupIndia)
+- [Jupiter Dev Docs](https://dev.jup.ag/docs/api-setup)
+
+---
+
+## License
+MIT
