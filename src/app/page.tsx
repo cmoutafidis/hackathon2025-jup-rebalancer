@@ -182,9 +182,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             <div className="flex items-center space-x-4">
-              <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
-                <Zap className="w-5 h-5 text-white" />
-              </div>
+              <img src="/jupi.svg" alt="Jupiter Logo" className="w-8 h-8 rounded-lg bg-white/10" />
               <h1 className="text-xl font-bold text-white">Jupiter Portfolio Rebalancer</h1>
             </div>
             {/* Navigation Buttons */}
