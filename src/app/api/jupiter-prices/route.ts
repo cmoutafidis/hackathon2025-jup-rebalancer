@@ -28,17 +28,17 @@ export async function GET(request: Request) {
         } else {
           priceData[tokenAddress] = { price: 0 };
         }
-      } catch (error) {
+      } catch {
         priceData[tokenAddress] = { price: 0 };
       }
     }
 
     return NextResponse.json({ data: priceData }, { status: 200 });
 
-  } catch (error) {
-    console.error('Error in jupiter-prices API route:', error);
-    if (error instanceof Error) {
-      return NextResponse.json({ error: error.message }, { status: 500 });
+  } catch (err) {
+    console.error('Error in jupiter-prices API route:', err);
+    if (err instanceof Error) {
+      return NextResponse.json({ error: err.message }, { status: 500 });
     }
     return NextResponse.json({ error: 'An unknown error occurred' }, { status: 500 });
   }
