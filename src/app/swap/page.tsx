@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react';
 import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
-import { useWallet } from '@solana/wallet-adapter-react';
 import { Zap, RefreshCw, Search, TrendingUp } from 'lucide-react';
 
 interface JupiterToken {
@@ -15,7 +14,6 @@ interface JupiterToken {
 }
 
 export default function SwapPage() {
-  const { connected } = useWallet();
   const [tokens, setTokens] = useState<JupiterToken[]>([]);
   const [filteredTokens, setFilteredTokens] = useState<JupiterToken[]>([]);
   const [isLoading, setIsLoading] = useState(true);
