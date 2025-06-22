@@ -6,6 +6,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { Wallet, TrendingUp, RefreshCw, Zap, ExternalLink, AlertCircle } from 'lucide-react';
 import { LAMPORTS_PER_SOL } from '@solana/web3.js';
 import { TOKEN_PROGRAM_ID } from '@solana/spl-token';
+import Link from 'next/link';
 
 // Define the structure for our token data
 interface TokenInfo {
@@ -188,8 +189,8 @@ export default function Home() {
             </div>
             {/* Navigation Buttons */}
             <nav className="flex space-x-4">
-              <a href="/" className="px-4 py-2 rounded-lg bg-gradient-to-r from-purple-600 to-pink-600 text-white font-medium hover:from-purple-700 hover:to-pink-700 transition-all duration-200">Home</a>
-              <a href="/swap" className="px-4 py-2 rounded-lg bg-gradient-to-r from-purple-600 to-pink-600 text-white font-medium hover:from-purple-700 hover:to-pink-700 transition-all duration-200">Swap</a>
+              <Link href="/" className="px-4 py-2 rounded-lg bg-gradient-to-r from-purple-600 to-pink-600 text-white font-medium hover:from-purple-700 hover:to-pink-700 transition-all duration-200">Home</Link>
+              <Link href="/swap" className="px-4 py-2 rounded-lg bg-gradient-to-r from-purple-600 to-pink-600 text-white font-medium hover:from-purple-700 hover:to-pink-700 transition-all duration-200">Swap</Link>
               <a href="https://github.com/harshakp06/jup-rebalancer" target="_blank" rel="noopener noreferrer" className="px-4 py-2 rounded-lg bg-gradient-to-r from-gray-800 to-gray-600 text-white font-medium hover:from-gray-900 hover:to-gray-700 transition-all duration-200">GitHub</a>
             </nav>
           </div>
