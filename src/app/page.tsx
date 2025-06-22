@@ -4,7 +4,7 @@ import { useConnection, useWallet } from '@solana/wallet-adapter-react';
 import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
 import { useState, useEffect, useCallback } from 'react';
 import { Wallet, TrendingUp, RefreshCw, Zap, ExternalLink, AlertCircle } from 'lucide-react';
-import { LAMPORTS_PER_SOL, ParsedAccountData, PublicKey } from '@solana/web3.js';
+import { LAMPORTS_PER_SOL } from '@solana/web3.js';
 import { TOKEN_PROGRAM_ID } from '@solana/spl-token';
 
 // Define the structure for our token data
