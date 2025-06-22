@@ -186,6 +186,11 @@ export default function Home() {
               </div>
               <h1 className="text-xl font-bold text-white">Jupiter Portfolio Rebalancer</h1>
             </div>
+            {/* Navigation Buttons */}
+            <nav className="flex space-x-2">
+              <a href="/" className="px-4 py-2 rounded-lg bg-gradient-to-r from-purple-600 to-pink-600 text-white font-medium hover:from-purple-700 hover:to-pink-700 transition-all duration-200">Home</a>
+              <a href="/swap" className="px-4 py-2 rounded-lg bg-gradient-to-r from-purple-600 to-pink-600 text-white font-medium hover:from-purple-700 hover:to-pink-700 transition-all duration-200">Swap</a>
+            </nav>
           </div>
         </div>
       </header>
