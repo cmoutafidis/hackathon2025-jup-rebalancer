@@ -105,7 +105,7 @@ export default function SwapPage() {
               <h1 className="text-xl font-bold text-white">Jupiter Swap</h1>
             </div>
             {/* Navigation Buttons */}
-            <nav className="flex space-x-2">
+            <nav className="flex space-x-4">
               <a href="/" className="px-4 py-2 rounded-lg bg-gradient-to-r from-purple-600 to-pink-600 text-white font-medium hover:from-purple-700 hover:to-pink-700 transition-all duration-200">Home</a>
               <a href="/swap" className="px-4 py-2 rounded-lg bg-gradient-to-r from-purple-600 to-pink-600 text-white font-medium hover:from-purple-700 hover:to-pink-700 transition-all duration-200">Swap</a>
               <a href="https://github.com/harshakp06/jup-rebalancer" target="_blank" rel="noopener noreferrer" className="px-4 py-2 rounded-lg bg-gradient-to-r from-gray-800 to-gray-600 text-white font-medium hover:from-gray-900 hover:to-gray-700 transition-all duration-200">GitHub</a>
@@ -121,6 +121,27 @@ export default function SwapPage() {
           </div>
         </div>
       </header>
+
+      {/* API Links Section */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6 mb-4">
+        <div className="bg-white/10 border border-white/20 rounded-lg p-4 text-white text-sm">
+          <div className="mb-2 font-semibold">APIs used in this page:</div>
+          <ul className="list-disc list-inside space-y-1">
+            <li>
+              Jupiter Token List: <a href="https://token.jup.ag/strict" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-400">https://token.jup.ag/strict</a>
+            </li>
+            <li>
+              Jupiter Price API: <a href="https://quote-api.jup.ag/v6/quote" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-400">https://quote-api.jup.ag/v6/quote</a>
+            </li>
+            <li>
+              Local API (tokens): <span className="text-gray-300">/api/jupiter-tokens</span>
+            </li>
+            <li>
+              Local API (prices): <span className="text-gray-300">/api/jupiter-prices</span>
+            </li>
+          </ul>
+        </div>
+      </section>
 
       {/* Main Content */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -147,59 +168,90 @@ export default function SwapPage() {
           </div>
         )}
 
-        {/* Token Grid */}
-        {!isLoading && (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {filteredTokens.map((token) => (
-              <div
-                key={token.address}
-                className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-6 hover:bg-white/15 transition-all duration-200 cursor-pointer group"
-              >
-                <div className="flex items-center space-x-4 mb-4">
-                  <div className="w-12 h-12 rounded-full overflow-hidden bg-white/10 flex items-center justify-center">
-                    {token.logoURI ? (
-                      <img
-                        src={token.logoURI}
-                        alt={token.symbol}
-                        className="w-full h-full object-cover"
-                        onError={(e) => {
-                          const target = e.target as HTMLImageElement;
-                          target.style.display = 'none';
-                          target.nextElementSibling?.classList.remove('hidden');
-                        }}
-                      />
-                    ) : null}
-                    <div className={`w-full h-full flex items-center justify-center text-white font-bold text-lg ${token.logoURI ? 'hidden' : ''}`}>
-                      {token.symbol.charAt(0)}
-                    </div>
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <h3 className="text-white font-semibold text-lg truncate">{token.symbol}</h3>
-                    <p className="text-white/60 text-sm truncate">{token.name}</p>
-                  </div>
-                </div>
-                
-                <div className="space-y-2">
-                  <div className="flex items-center justify-between">
-                    <span className="text-white/60 text-sm">Price</span>
-                    <span className="text-white font-semibold">{formatPrice(token.price || 0)}</span>
-                  </div>
-                  
-                  <div className="flex items-center justify-between">
-                    <span className="text-white/60 text-sm">Decimals</span>
-                    <span className="text-white">{token.decimals}</span>
-                  </div>
-                </div>
+        {/* Pagination Logic */}
+        {(() => {
+          // Pagination state
+          const [page, setPage] = useState(1);
+          const tokensPerPage = 20;
+          const totalPages = Math.ceil(filteredTokens.length / tokensPerPage);
+          const paginatedTokens = filteredTokens.slice((page - 1) * tokensPerPage, page * tokensPerPage);
 
-                <div className="mt-4 pt-4 border-t border-white/10">
-                  <div className="text-xs text-white/40 font-mono truncate">
-                    {token.address}
-                  </div>
+          // Pagination controls
+          return (
+            <>
+              {/* Token Grid */}
+              {!isLoading && (
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                  {paginatedTokens.map((token) => (
+                    <div
+                      key={token.address}
+                      className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-6 shadow-lg hover:shadow-2xl hover:bg-white/20 transition-all duration-200 cursor-pointer group flex flex-col justify-between min-h-[220px]"
+                    >
+                      <div className="flex items-center space-x-4 mb-4">
+                        <div className="w-14 h-14 rounded-full overflow-hidden bg-white/20 flex items-center justify-center shadow-md">
+                          {token.logoURI ? (
+                            <img
+                              src={token.logoURI}
+                              alt={token.symbol}
+                              className="w-full h-full object-cover"
+                              onError={(e) => {
+                                const target = e.target as HTMLImageElement;
+                                target.style.display = 'none';
+                                target.nextElementSibling?.classList.remove('hidden');
+                              }}
+                            />
+                          ) : null}
+                          <div className={`w-full h-full flex items-center justify-center text-white font-bold text-lg ${token.logoURI ? 'hidden' : ''}`}>
+                            {token.symbol.charAt(0)}
+                          </div>
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <h3 className="text-white font-semibold text-lg truncate">{token.symbol}</h3>
+                          <p className="text-white/60 text-sm truncate">{token.name}</p>
+                        </div>
+                      </div>
+                      <div className="space-y-2">
+                        <div className="flex items-center justify-between">
+                          <span className="text-white/60 text-sm">Price</span>
+                          <span className="text-white font-semibold">{formatPrice(token.price || 0)}</span>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <span className="text-white/60 text-sm">Decimals</span>
+                          <span className="text-white">{token.decimals}</span>
+                        </div>
+                      </div>
+                      <div className="mt-4 pt-4 border-t border-white/10">
+                        <div className="text-xs text-white/40 font-mono truncate">
+                          {token.address}
+                        </div>
+                      </div>
+                    </div>
+                  ))}
                 </div>
-              </div>
-            ))}
-          </div>
-        )}
+              )}
+              {/* Pagination Controls */}
+              {!isLoading && totalPages > 1 && (
+                <div className="flex justify-center items-center mt-8 space-x-4">
+                  <button
+                    onClick={() => setPage((p) => Math.max(1, p - 1))}
+                    disabled={page === 1}
+                    className="px-4 py-2 rounded-lg bg-white/10 text-white font-medium disabled:opacity-50 hover:bg-white/20 transition-all duration-200"
+                  >
+                    Previous
+                  </button>
+                  <span className="text-white/80">Page {page} of {totalPages}</span>
+                  <button
+                    onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
+                    disabled={page === totalPages}
+                    className="px-4 py-2 rounded-lg bg-white/10 text-white font-medium disabled:opacity-50 hover:bg-white/20 transition-all duration-200"
+                  >
+                    Next
+                  </button>
+                </div>
+              )}
+            </>
+          );
+        })()}
 
         {/* No Results */}
         {!isLoading && filteredTokens.length === 0 && (
