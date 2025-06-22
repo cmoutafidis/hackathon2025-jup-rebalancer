@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
-import { Zap, RefreshCw, Search, TrendingUp } from 'lucide-react';
+import { RefreshCw, Search, TrendingUp } from 'lucide-react';
 import Link from 'next/link';
 
 interface JupiterToken {
